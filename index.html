@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>欢迎</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1b1e2b 0%, #2d1b3e 60%, #3a1d3d 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .card { max-width: 420px; width: 100%; }
+    .logo {
+      width: 76px; height: 76px; margin: 0 auto 22px;
+      background: #fff; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 40px; font-weight: 700; color: #1b1e2b;
+    }
+    h1 { font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+    .sub { font-size: 15px; color: #cfc6e0; line-height: 1.7; margin-bottom: 30px; }
+    a.btn {
+      display: block; width: 100%;
+      background: #ff5c7a; color: #fff;
+      font-size: 20px; font-weight: 700;
+      padding: 18px 0; border-radius: 14px;
+      text-decoration: none; box-shadow: 0 10px 30px rgba(255,92,122,.35);
+      transition: transform .15s;
+    }
+    a.btn:active { transform: scale(.97); }
+    .note { margin-top: 22px; font-size: 12px; color: #8f86a8; }
+    .age-line { font-size: 13px; color: #b8aed8; margin-bottom: 26px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">18+</div>
+    <h1>欢迎进入</h1>
+    <p class="sub">点击下方"进入",即可继续。<br>本站为成人内容平台,仅限 18 岁以上访问。</p>
+    <a class="btn" id="enterBtn" target="_blank" rel="noopener"
+       href="https://go.whitetrafsa.com?userId=b8e26f5282a81cc55c1dd7fb4decbad2956c82f41d82fd7fc3573506e1ce3366">进入</a>
+    <p class="age-line">本页面不含任何成人内容,仅作访问引导。</p>
+    <div class="note" id="counterNote"></div>
+  </div>
+
+  <script>
+    // 简单到站计数(本设备 localStorage;正式版建议接 GA4)
+    try {
+      var c = parseInt(localStorage.getItem("lp_visit") || "0", 10) + 1;
+      localStorage.setItem("lp_visit", String(c));
+      document.getElementById("counterNote").textContent =
+        "本设备到站次数:" + c;
+    } catch (e) {}
+    // 按钮点击事件(给广告投放用,做到达率
+    document.getElementById("enterBtn").addEventListener("click", function () {
+      localStorage.setItem("lp_click", "1");
+    });
+  </script>
+</body>
+</html>
