@@ -3,62 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome</title>
+  <title>Join Now</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       min-height: 100vh;
-      background: linear-gradient(135deg, #1b1e2b 0%, #2d1b3e 60%, #3a1d3d 100%);
       color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(255,92,122,.28), transparent 60%),
+        radial-gradient(800px 500px at 10% 110%, rgba(120,60,220,.30), transparent 60%),
+        linear-gradient(150deg, #151827 0%, #251737 55%, #311a35 100%);
+      display: flex; align-items: center; justify-content: center; text-align: center;
       padding: 20px;
+      -webkit-font-smoothing: antialiased;
     }
-    .card { max-width: 420px; width: 100%; }
+    .langs { position: fixed; top: 16px; right: 18px; font-size: 13px; z-index: 5; }
+    .langs button {
+      background: rgba(255,255,255,.10); color: #fff; border: none; border-radius: 8px;
+      padding: 4px 9px; margin-left: 6px; cursor: pointer; font-size: 12px;
+    }
+    .langs button.active { background: rgba(255,255,255,.28); }
+    .card { max-width: 440px; width: 100%; }
     .logo {
-      width: 76px; height: 76px; margin: 0 auto 22px;
+      width: 72px; height: 72px; margin: 0 auto 20px;
       background: #fff; border-radius: 18px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 40px; font-weight: 700; color: #1b1e2b;
+      font-size: 38px; font-weight: 700; color: #151827;
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
     }
-    h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
-    .sub { font-size: 15px; color: #cfc6e0; line-height: 1.7; margin-bottom: 30px; }
+    h1 { font-size: 30px; font-weight: 800; letter-spacing: .5px; margin-bottom: 12px; }
+    .sub { font-size: 15px; color: #cfc6e0; line-height: 1.65; margin-bottom: 24px; }
+    .feats { list-style: none; margin: 0 auto 28px; max-width: 320px; text-align: left; }
+    .feats li {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 15px; color: #e6defa; padding: 7px 2px;
+    }
+    .feats li::before {
+      content: "\2713"; width: 22px; height: 22px; flex: 0 0 22px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: rgba(255,92,122,.20); color: #ff8fa6;
+      border-radius: 50%; font-size: 13px; font-weight: 700;
+    }
     a.btn {
       display: block; width: 100%;
-      background: #ff5c7a; color: #fff;
-      font-size: 20px; font-weight: 700;
-      padding: 18px 0; border-radius: 14px;
-      text-decoration: none; box-shadow: 0 10px 30px rgba(255,92,122,.35);
-      transition: transform .15s;
+      background: linear-gradient(135deg, #ff5c7a 0%, #ff7a5c 100%);
+      color: #fff; font-size: 21px; font-weight: 800; letter-spacing: .6px;
+      padding: 19px 0; border-radius: 16px; text-decoration: none;
+      box-shadow: 0 12px 34px rgba(255,92,122,.45);
+      transition: transform .12s ease, box-shadow .12s ease;
     }
-    a.btn:active { transform: scale(.97); }
-    .note { margin-top: 22px; font-size: 12px; color: #8f86a8; }
-    .age-line { font-size: 13px; color: #b8aed8; margin-bottom: 26px; }
+    a.btn:active { transform: scale(.97); box-shadow: 0 6px 18px rgba(255,92,122,.35); }
+    .mini { margin-top: 22px; font-size: 12.5px; color: #9a90b4; }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="logo">18+</div>
-    <h1>Welcome</h1>
-    <p class="sub">Tap the button below to continue.<br>This is an adult website for users aged 18 and over.</p>
-    <a class="btn" id="enterBtn" target="_blank" rel="noopener"
-       href="https://go.whitetrafsa.com?userId=b8e26f5282a81cc55c1dd7fb4decbad2956c82f41d82fd7fc3573506e1ce3366">Enter</a>
-    <p class="age-line">This page contains no adult content. It is only an access gate.</p>
-    <div class="note" id="counterNote"></div>
+  <div class="langs">
+    <button id="ln-en" class="active">EN</button>
+    <button id="ln-es">ES</button>
+    <button id="ln-pt">PT</button>
   </div>
 
+  <div class="card">
+    <div class="logo">18+</div>
+    <h1 id="t_headline">Watch Live Now</h1>
+    <p class="sub" id="t_sub">Live HD entertainment, available 24/7. Joining takes seconds and it&rsquo;s free.</p>
+    <ul class="feats">
+      <li id="t_f1">HD Live Streams &middot; Available 24/7</li>
+      <li id="t_f2">Free to Join</li>
+      <li id="t_f3">Private &amp; Secure</li>
+    </ul>
+    <a class="btn" id="enterBtn" target="_blank" rel="noopener"
+       href="https://go.whitetrafsa.com?userId=b8e26f5282a81cc55c1dd7fb4decbad2956c82f41d82fd7fc3573506e1ce3366"
+       data-ln-label-en="Join Now" data-ln-label-es="Únete Ahora" data-ln-label-pt="Entrar Agora"
+       >Join Now</a>
+    <div class="mini" id="t_age">18+ only. Entertainment for adults.</div>
+  </div>
+
+  <!-- ===== 到达统计:Google Analytics 4(自动记页面访问 + 按钮点击) ===== -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
   <script>
-    try {
-      var c = parseInt(localStorage.getItem("lp_visit") || "0", 10) + 1;
-      localStorage.setItem("lp_visit", String(c));
-      document.getElementById("counterNote").textContent = "Visits on this device: " + c;
-    } catch (e) {}
-    document.getElementById("enterBtn").addEventListener("click", function () {
-      localStorage.setItem("lp_click", "1");
+    // 把下面两个 G-XXXXXXXX 换成你自己的 GA4 测量ID。
+    // 还没有?去 https://analytics.google.com 新建一个 “GA4 媒体资源” 就能拿到免费ID。
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXX', { send_page_view: true });
+    document.getElementById('enterBtn').addEventListener('click', function(){
+      gtag('event', 'lp_join_click', { event_category: 'landing' });
     });
+  </script>
+
+  <script>
+    // 多语言:按浏览器语言自动选,右上角 EN/ES/PT 可手动切
+    var T = {
+      en: { h:'Watch Live Now',
+            sub:'Live HD entertainment, available 24/7. Joining takes seconds and it\u2019s free.',
+            f1:'HD Live Streams \u00B7 Available 24/7', f2:'Free to Join', f3:'Private & Secure',
+            age:'18+ only. Entertainment for adults.' },
+      es: { h:'Mira En Vivo Ahora',
+            sub:'Entretenimiento en vivo HD, disponible 24/7. Unirse toma segundos y es gratis.',
+            f1:'Streams en vivo HD \u00B7 Disponible 24/7', f2:'Únete gratis', f3:'Privado y seguro',
+            age:'Solo 18+. Entretenimiento para adultos.' },
+      pt: { h:'Assista ao Vivo Agora',
+            sub:'Entretenimento ao vivo em HD, 24/7. Entrar leva segundos e é grátis.',
+            f1:'Transmissões ao vivo em HD \u00B7 24/7', f2:'Grátis para entrar', f3:'Privado e seguro',
+            age:'Apenas 18+. Entretenimento para adultos.' }
+    };
+    var btnEnt = document.getElementById('enterBtn');
+    function apply(l){
+      var d = T[l] || T.en;
+      document.getElementById('t_headline').textContent = d.h;
+      document.getElementById('t_sub').textContent = d.sub;
+      document.getElementById('t_f1').innerHTML = d.f1;
+      document.getElementById('t_f2').textContent = d.f2;
+      document.getElementById('t_f3').textContent = d.f3;
+      document.getElementById('t_age').textContent = d.age;
+      btnEnt.textContent = btnEnt.getAttribute('data-ln-label-' + l) || btnEnt.getAttribute('data-ln-label-en');
+      document.querySelectorAll('.langs button').forEach(function(b){
+        b.classList.toggle('active', b.id === 'ln-' + l);
+      });
+    }
+    var nav = (navigator.language || 'en').toLowerCase();
+    var pick = nav.indexOf('es') === 0 ? 'es' : (nav.indexOf('pt') === 0 ? 'pt' : 'en');
+    ['en','es','pt'].forEach(function(l){
+      document.getElementById('ln-' + l).addEventListener('click', function(){ apply(l); });
+    });
+    apply(pick);
   </script>
 </body>
 </html>
