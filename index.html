@@ -18,11 +18,18 @@
       padding: 20px;
       -webkit-font-smoothing: antialiased;
     }
-    .langs { position: fixed; top: 16px; right: 18px; font-size: 13px; z-index: 5; }
-    .langs button {
-      background: rgba(255,255,255,.10); color: #fff; border: none; border-radius: 8px;
-      padding: 4px 9px; margin-left: 6px; cursor: pointer; font-size: 12px;
+    /* 右上角语言切换：6 种语言一行排开，窄屏自动换行，不会跑出屏幕 */
+    .langs {
+      position: fixed; top: 14px; right: 12px; z-index: 5;
+      display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px;
+      max-width: calc(100% - 24px);
     }
+    .langs button {
+      background: rgba(255,255,255,.10); color: #fff; border: none; border-radius: 7px;
+      padding: 4px 8px; cursor: pointer; font-size: 11.5px; line-height: 1.1;
+      transition: background .15s ease;
+    }
+    .langs button:hover { background: rgba(255,255,255,.20); }
     .langs button.active { background: rgba(255,255,255,.28); }
     .card { max-width: 440px; width: 100%; }
     .logo {
@@ -49,17 +56,26 @@
       display: block; width: 100%;
       background: linear-gradient(135deg, #ff5c7a 0%, #ff7a5c 100%);
       color: #fff; font-size: 21px; font-weight: 800; letter-spacing: .6px;
-      padding: 19px 0; border-radius: 16px; text-decoration: none;
+      padding: 19px 12px; border-radius: 16px; text-decoration: none;
       box-shadow: 0 12px 34px rgba(255,92,122,.45);
       transition: transform .12s ease, box-shadow .12s ease;
     }
     a.btn:active { transform: scale(.97); box-shadow: 0 6px 18px rgba(255,92,122,.35); }
     .mini { margin-top: 22px; font-size: 12.5px; color: #9a90b4; }
+    /* 小屏适配：标题别折断成三行，语言按钮再缩一档 */
+    @media (max-width: 380px) {
+      h1 { font-size: 26px; }
+      .sub { font-size: 14px; }
+      .langs button { font-size: 11px; padding: 6px 8px; border-radius: 8px; }
+    }
   </style>
 </head>
 <body>
   <div class="langs">
     <button id="ln-en" class="active">EN</button>
+    <button id="ln-de">DE</button>
+    <button id="ln-fr">FR</button>
+    <button id="ln-it">IT</button>
     <button id="ln-es">ES</button>
     <button id="ln-pt">PT</button>
   </div>
@@ -74,8 +90,9 @@
       <li id="t_f3">Private &amp; Secure</li>
     </ul>
     <a class="btn" id="enterBtn" target="_blank" rel="noopener"
-       href="https://go.whitetrafsa.com?userId=b8e26f5282a81cc55c1dd7fb4decbad2956c82f41d82fd7fc3573506e1ce3366"
-       data-ln-label-en="Join Now" data-ln-label-es="Únete Ahora" data-ln-label-pt="Entrar Agora"
+       href="https://bongacams4.com/track?c=843731"
+       data-ln-label-en="Join Now" data-ln-label-de="Jetzt beitreten" data-ln-label-fr="Rejoindre maintenant"
+       data-ln-label-it="Iscriviti ora" data-ln-label-es="Únete Ahora" data-ln-label-pt="Entrar Agora"
        >Join Now</a>
     <div class="mini" id="t_age">18+ only. Entertainment for adults.</div>
   </div>
@@ -95,12 +112,24 @@
   </script>
 
   <script>
-    // 多语言:按浏览器语言自动选,右上角 EN/ES/PT 可手动切
+    // 多语言：6 种（英/德/法/意/西/葡）。默认按浏览器语言，右上角可手动切
     var T = {
       en: { h:'Watch Live Now',
             sub:'Live HD entertainment, available 24/7. Joining takes seconds and it\u2019s free.',
             f1:'HD Live Streams \u00B7 Available 24/7', f2:'Free to Join', f3:'Private & Secure',
             age:'18+ only. Entertainment for adults.' },
+      de: { h:'Jetzt live ansehen',
+            sub:'Live-HD-Unterhaltung, rund um die Uhr. Die Anmeldung dauert nur Sekunden und ist kostenlos.',
+            f1:'HD-Livestreams \u00B7 Rund um die Uhr', f2:'Kostenlose Anmeldung', f3:'Privat und sicher',
+            age:'Nur ab 18 Jahren. Unterhaltung für Erwachsene.' },
+      fr: { h:'Regarder en direct',
+            sub:'Divertissement live en HD, disponible 24h/24. L\'inscription prend quelques secondes, c\'est gratuit.',
+            f1:'Streams live HD \u00B7 24h/24', f2:'Inscription gratuite', f3:'Privé et sécurisé',
+            age:'Réservé aux 18 ans et plus. Divertissement pour adultes.' },
+      it: { h:'Guarda in diretta',
+            sub:'Intrattenimento live in HD, disponibile 24/7. Iscriversi richiede pochi secondi ed è gratis.',
+            f1:'Stream live in HD \u00B7 24/7', f2:'Iscrizione gratuita', f3:'Privato e sicuro',
+            age:'Solo 18+. Intrattenimento per adulti.' },
       es: { h:'Mira En Vivo Ahora',
             sub:'Entretenimiento en vivo HD, disponible 24/7. Unirse toma segundos y es gratis.',
             f1:'Streams en vivo HD \u00B7 Disponible 24/7', f2:'Únete gratis', f3:'Privado y seguro',
@@ -120,16 +149,77 @@
       document.getElementById('t_f3').textContent = d.f3;
       document.getElementById('t_age').textContent = d.age;
       btnEnt.textContent = btnEnt.getAttribute('data-ln-label-' + l) || btnEnt.getAttribute('data-ln-label-en');
+      document.documentElement.lang = T[l] ? l : 'en';
       document.querySelectorAll('.langs button').forEach(function(b){
         b.classList.toggle('active', b.id === 'ln-' + l);
       });
     }
     var nav = (navigator.language || 'en').toLowerCase();
-    var pick = nav.indexOf('es') === 0 ? 'es' : (nav.indexOf('pt') === 0 ? 'pt' : 'en');
-    ['en','es','pt'].forEach(function(l){
-      document.getElementById('ln-' + l).addEventListener('click', function(){ apply(l); });
+    var pick = nav.indexOf('de') === 0 ? 'de'
+             : nav.indexOf('fr') === 0 ? 'fr'
+             : nav.indexOf('it') === 0 ? 'it'
+             : nav.indexOf('es') === 0 ? 'es'
+             : nav.indexOf('pt') === 0 ? 'pt' : 'en';
+    ['en','de','fr','it','es','pt'].forEach(function(l){
+      document.getElementById('ln-' + l).addEventListener('click', function(){
+        apply(l);
+        try { localStorage.setItem('lp_lang_pick', l); } catch(e){}   // 用户手动点过 → 记住，以后都听他的
+      });
     });
     apply(pick);
+  </script>
+  <!-- ===== 按 IP 国家自动选语言（用户手动点过则以用户为准） ===== -->
+  <script>
+  (function(){
+    var LANGS = ['en','de','fr','it','es','pt'];
+    // 国家 → 语言 对照表。没列到的国家一律英文（荷兰/北欧等英语普及率极高，不需要单独做）
+    var ES = ['ES','MX','AR','CO','CL','PE','VE','EC','BO','PY','UY','GT','HN','SV','NI','CR','PA','CU','DO','PR','GQ'];
+    var PT = ['BR','PT','AO','MZ','CV','GW','ST','TL'];
+    var DE = ['DE','AT','CH','LI'];
+    var FR = ['FR','MC','SN','CI','CM','BF','ML','NE','TG','BJ','GA','CG','CD','MG'];
+    var IT = ['IT','SM'];
+    function langOf(cc){
+      cc = (cc || '').toUpperCase();
+      if (DE.indexOf(cc) >= 0) return 'de';
+      if (FR.indexOf(cc) >= 0) return 'fr';
+      if (IT.indexOf(cc) >= 0) return 'it';
+      if (ES.indexOf(cc) >= 0) return 'es';
+      if (PT.indexOf(cc) >= 0) return 'pt';
+      return 'en';
+    }
+    var OK = true;
+    try { localStorage.setItem('_t','1'); localStorage.removeItem('_t'); } catch(e){ OK = false; }
+    function get(k){ try { return OK ? localStorage.getItem(k) : null; } catch(e){ return null; } }
+    function set(k,v){ try { if(OK) localStorage.setItem(k,v); } catch(e){} }
+    function use(l){ if (LANGS.indexOf(l) >= 0) apply(l); }
+
+    // 1) 用户手动选过 → 永远以他为尊：既覆盖自动识别，重新打开也记得他的选择
+    var manual = get('lp_lang_pick');
+    if (manual && LANGS.indexOf(manual) >= 0) { use(manual); return; }
+
+    // 2) 24 小时内的识别结果直接复用（省接口次数、页面更快）
+    var cc0 = get('lp_geo_cc'), ts = parseInt(get('lp_geo_ts') || '0', 10);
+    if (cc0 && (Date.now() - ts) < 86400000) { use(langOf(cc0)); return; }
+
+    // 3) 两个免费 IP 定位接口依次试，每个 3 秒超时；全失败就保持原来的“浏览器语言”判断
+    var APIS = ['https://get.geojs.io/v1/ip/country.json', 'https://api.country.is/'];
+    function tryNext(i){
+      if (i >= APIS.length) return;
+      var done = false;
+      var timer = setTimeout(function(){ if (!done) { done = true; tryNext(i+1); } }, 3000);
+      fetch(APIS[i], { cache: 'no-store' })
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if (done) return; done = true; clearTimeout(timer);
+          var cc = d && (d.country || d.country_code);
+          if (!cc) { tryNext(i+1); return; }
+          set('lp_geo_cc', cc); set('lp_geo_ts', String(Date.now()));
+          use(langOf(cc));
+        })
+        .catch(function(){ if (done) return; done = true; clearTimeout(timer); tryNext(i+1); });
+    }
+    tryNext(0);
+  })();
   </script>
 </body>
 </html>
