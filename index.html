@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join Now</title>
+  <title>Watch Now</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -41,7 +41,7 @@
     }
     h1 { font-size: 30px; font-weight: 800; letter-spacing: .5px; margin-bottom: 12px; }
     .sub { font-size: 15px; color: #cfc6e0; line-height: 1.65; margin-bottom: 24px; }
-    .feats { list-style: none; margin: 0 auto 28px; max-width: 320px; text-align: left; }
+    .feats { list-style: none; margin: 0 auto 28px; max-width: 330px; text-align: left; }
     .feats li {
       display: flex; align-items: center; gap: 10px;
       font-size: 15px; color: #e6defa; padding: 7px 2px;
@@ -55,7 +55,7 @@
     a.btn {
       display: block; width: 100%;
       background: linear-gradient(135deg, #ff5c7a 0%, #ff7a5c 100%);
-      color: #fff; font-size: 21px; font-weight: 800; letter-spacing: .6px;
+      color: #fff; font-size: 21px; font-weight: 800; letter-spacing: .8px;
       padding: 19px 12px; border-radius: 16px; text-decoration: none;
       box-shadow: 0 12px 34px rgba(255,92,122,.45);
       transition: transform .12s ease, box-shadow .12s ease;
@@ -82,18 +82,18 @@
 
   <div class="card">
     <div class="logo">18+</div>
-    <h1 id="t_headline">Watch Live Now</h1>
-    <p class="sub" id="t_sub">Live HD entertainment, available 24/7. Joining takes seconds and it&rsquo;s free.</p>
+    <h1 id="t_headline">10,000+ Sweet Girls Online</h1>
+    <p class="sub" id="t_sub">The sweetest girls show themselves live right now &mdash; pick any one you like. Free to watch.</p>
     <ul class="feats">
-      <li id="t_f1">HD Live Streams &middot; Available 24/7</li>
-      <li id="t_f2">Free to Join</li>
-      <li id="t_f3">Private &amp; Secure</li>
+      <li id="t_f1">10,000+ models online now</li>
+      <li id="t_f2">Pick any one you like</li>
+      <li id="t_f3">Free to watch &mdash; instant access</li>
     </ul>
     <a class="btn" id="enterBtn" target="_blank" rel="noopener"
        href="https://bongacams4.com/track?c=843731"
-       data-ln-label-en="Join Now" data-ln-label-de="Jetzt beitreten" data-ln-label-fr="Rejoindre maintenant"
-       data-ln-label-it="Iscriviti ora" data-ln-label-es="Únete Ahora" data-ln-label-pt="Entrar Agora"
-       >Join Now</a>
+       data-ln-label-en="WATCH NOW" data-ln-label-de="JETZT ANSEHEN" data-ln-label-fr="REGARDER"
+       data-ln-label-it="GUARDA ORA" data-ln-label-es="VER AHORA" data-ln-label-pt="ASSISTIR AGORA"
+       >WATCH NOW</a>
     <div class="mini" id="t_age">18+ only. Entertainment for adults.</div>
   </div>
 
@@ -113,30 +113,31 @@
 
   <script>
     // 多语言：6 种（英/德/法/意/西/葡）。默认按浏览器语言，右上角可手动切
+    // 文案 = 数字卖点(10,000+ 模特在线) + “最甜的姑娘正在线直播” + “随便挑一个” + WATCH NOW
     var T = {
-      en: { h:'Watch Live Now',
-            sub:'Live HD entertainment, available 24/7. Joining takes seconds and it\u2019s free.',
-            f1:'HD Live Streams \u00B7 Available 24/7', f2:'Free to Join', f3:'Private & Secure',
+      en: { h:'10,000+ Sweet Girls Online',
+            sub:'The sweetest girls show themselves live right now \u2014 pick any one you like. Free to watch.',
+            f1:'10,000+ models online now', f2:'Pick any one you like', f3:'Free to watch \u2014 instant access',
             age:'18+ only. Entertainment for adults.' },
-      de: { h:'Jetzt live ansehen',
-            sub:'Live-HD-Unterhaltung, rund um die Uhr. Die Anmeldung dauert nur Sekunden und ist kostenlos.',
-            f1:'HD-Livestreams \u00B7 Rund um die Uhr', f2:'Kostenlose Anmeldung', f3:'Privat und sicher',
+      de: { h:'10.000+ süße Girls online',
+            sub:'Die süßesten Girls zeigen sich gerade live \u2014 such dir einfach die aus, die dir gefällt. Ansehen ist kostenlos.',
+            f1:'10.000+ Models gerade online', f2:'Such dir eine aus, die dir gefällt', f3:'Kostenlos ansehen \u2014 sofort dabei',
             age:'Nur ab 18 Jahren. Unterhaltung für Erwachsene.' },
-      fr: { h:'Regarder en direct',
-            sub:'Divertissement live en HD, disponible 24h/24. L\'inscription prend quelques secondes, c\'est gratuit.',
-            f1:'Streams live HD \u00B7 24h/24', f2:'Inscription gratuite', f3:'Privé et sécurisé',
+      fr: { h:'10 000+ filles en ligne',
+            sub:'Les plus belles filles se montrent en direct en ce moment \u2014 choisissez celle que vous voulez. Regarder est gratuit.',
+            f1:'10 000+ modèles en ligne maintenant', f2:'Choisissez celle qui vous plaît', f3:'Regarder gratuitement \u2014 accès immédiat',
             age:'Réservé aux 18 ans et plus. Divertissement pour adultes.' },
-      it: { h:'Guarda in diretta',
-            sub:'Intrattenimento live in HD, disponibile 24/7. Iscriversi richiede pochi secondi ed è gratis.',
-            f1:'Stream live in HD \u00B7 24/7', f2:'Iscrizione gratuita', f3:'Privato e sicuro',
+      it: { h:'Oltre 10.000 ragazze online',
+            sub:'Le ragazze più belle si mostrano in diretta proprio ora \u2014 scegli quella che preferisci. Guardare è gratis.',
+            f1:'10.000+ modelle online adesso', f2:'Scegli quella che ti piace', f3:'Guarda gratis \u2014 accesso immediato',
             age:'Solo 18+. Intrattenimento per adulti.' },
-      es: { h:'Mira En Vivo Ahora',
-            sub:'Entretenimiento en vivo HD, disponible 24/7. Unirse toma segundos y es gratis.',
-            f1:'Streams en vivo HD \u00B7 Disponible 24/7', f2:'Únete gratis', f3:'Privado y seguro',
+      es: { h:'Más de 10.000 chicas online',
+            sub:'Las chicas más dulces se muestran en vivo ahora mismo \u2014 elige la que quieras. Ver es gratis.',
+            f1:'10.000+ modelos online ahora', f2:'Elige la que más te guste', f3:'Ver gratis \u2014 acceso inmediato',
             age:'Solo 18+. Entretenimiento para adultos.' },
-      pt: { h:'Assista ao Vivo Agora',
-            sub:'Entretenimento ao vivo em HD, 24/7. Entrar leva segundos e é grátis.',
-            f1:'Transmissões ao vivo em HD \u00B7 24/7', f2:'Grátis para entrar', f3:'Privado e seguro',
+      pt: { h:'Mais de 10.000 garotas online',
+            sub:'As garotas mais doces estão se mostrando ao vivo agora \u2014 escolha a que quiser. Assistir é grátis.',
+            f1:'10.000+ modelos online agora', f2:'Escolha a que mais gostar', f3:'Assistir grátis \u2014 acesso imediato',
             age:'Apenas 18+. Entretenimento para adultos.' }
     };
     var btnEnt = document.getElementById('enterBtn');
