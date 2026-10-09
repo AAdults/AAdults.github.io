@@ -14,8 +14,8 @@
         radial-gradient(1200px 600px at 80% -10%, rgba(255,92,122,.28), transparent 60%),
         radial-gradient(800px 500px at 10% 110%, rgba(120,60,220,.30), transparent 60%),
         linear-gradient(150deg, #151827 0%, #251737 55%, #311a35 100%);
-      display: flex; align-items: center; justify-content: center; text-align: center;
-      padding: 20px;
+      display: flex; align-items: flex-start; justify-content: center; text-align: center;
+      padding: 16px;
       -webkit-font-smoothing: antialiased;
     }
     /* 右上角语言切换：6 种语言一行排开，窄屏自动换行，不会跑出屏幕 */
@@ -31,23 +31,24 @@
     }
     .langs button:hover { background: rgba(255,255,255,.20); }
     .langs button.active { background: rgba(255,255,255,.28); }
-    .card { max-width: 440px; width: 100%; }
+    /* margin:auto 竖向居中；内容比屏幕高时自动退化为从顶部开始，不会把标题顶出屏幕 */
+    .card { max-width: 440px; width: 100%; margin: auto 0; }
     .logo {
-      width: 72px; height: 72px; margin: 0 auto 20px;
+      width: 58px; height: 58px; margin: 0 auto 14px;
       background: #fff; border-radius: 18px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 38px; font-weight: 700; color: #151827;
+      font-size: 30px; font-weight: 700; color: #151827;
       box-shadow: 0 12px 30px rgba(0,0,0,.35);
     }
-    h1 { font-size: 30px; font-weight: 800; letter-spacing: .5px; margin-bottom: 12px; }
-    .sub { font-size: 15px; color: #cfc6e0; line-height: 1.65; margin-bottom: 24px; }
-    .feats { list-style: none; margin: 0 auto 28px; max-width: 330px; text-align: left; }
+    h1 { font-size: 25px; line-height: 1.18; font-weight: 800; letter-spacing: .4px; margin-bottom: 9px; }
+    .sub { font-size: 13.5px; color: #cfc6e0; line-height: 1.5; margin-bottom: 16px; }
+    .feats { list-style: none; margin: 0 auto 18px; max-width: 340px; text-align: left; }
     .feats li {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 15px; color: #e6defa; padding: 7px 2px;
+      display: flex; align-items: flex-start; gap: 9px;
+      font-size: 13.5px; line-height: 1.4; color: #e6defa; padding: 5px 2px;
     }
     .feats li::before {
-      content: "\2713"; width: 22px; height: 22px; flex: 0 0 22px;
+      content: "\2713"; width: 20px; height: 20px; flex: 0 0 20px; margin-top: 1px;
       display: inline-flex; align-items: center; justify-content: center;
       background: rgba(255,92,122,.20); color: #ff8fa6;
       border-radius: 50%; font-size: 13px; font-weight: 700;
@@ -55,17 +56,19 @@
     a.btn {
       display: block; width: 100%;
       background: linear-gradient(135deg, #ff5c7a 0%, #ff7a5c 100%);
-      color: #fff; font-size: 21px; font-weight: 800; letter-spacing: .8px;
-      padding: 19px 12px; border-radius: 16px; text-decoration: none;
+      color: #fff; font-size: 20px; font-weight: 800; letter-spacing: .8px;
+      padding: 16px 12px; border-radius: 16px; text-decoration: none;
       box-shadow: 0 12px 34px rgba(255,92,122,.45);
       transition: transform .12s ease, box-shadow .12s ease;
     }
     a.btn:active { transform: scale(.97); box-shadow: 0 6px 18px rgba(255,92,122,.35); }
-    .mini { margin-top: 22px; font-size: 12.5px; color: #9a90b4; }
+    .mini { margin-top: 14px; font-size: 11px; line-height: 1.45; color: #9a90b4; }
     /* 小屏适配：标题别折断成三行，语言按钮再缩一档 */
-    @media (max-width: 380px) {
-      h1 { font-size: 26px; }
-      .sub { font-size: 14px; }
+    @media (max-width: 430px) {
+      h1 { font-size: 21px; }
+      .sub { font-size: 12.5px; margin-bottom: 13px; }
+      .feats li { font-size: 12.5px; padding: 4px 2px; }
+      .mini { font-size: 10.5px; }
       .langs button { font-size: 11px; padding: 6px 8px; border-radius: 8px; }
     }
   </style>
@@ -82,19 +85,19 @@
 
   <div class="card">
     <div class="logo">18+</div>
-    <h1 id="t_headline">10,000+ Sweet Girls Online</h1>
-    <p class="sub" id="t_sub">The sweetest girls show themselves live right now &mdash; pick any one you like. Free to watch.</p>
+    <h1 id="t_headline">Discover Live Streaming Entertainment</h1>
+    <p class="sub" id="t_sub">Explore live-streaming content. Review the platform&rsquo;s content, access conditions and available features before continuing.</p>
     <ul class="feats">
-      <li id="t_f1">10,000+ models online now</li>
-      <li id="t_f2">Pick any one you like</li>
-      <li id="t_f3">Free to watch &mdash; instant access</li>
+      <li id="t_f1">Live-streaming content for adults</li>
+      <li id="t_f2">Platform features and access conditions may vary</li>
+      <li id="t_f3">Check the destination website for applicable terms and restrictions</li>
     </ul>
     <a class="btn" id="enterBtn" target="_blank" rel="noopener"
        href="https://bongacams4.com/track?c=843731"
-       data-ln-label-en="WATCH NOW" data-ln-label-de="JETZT ANSEHEN" data-ln-label-fr="REGARDER"
-       data-ln-label-it="GUARDA ORA" data-ln-label-es="VER AHORA" data-ln-label-pt="ASSISTIR AGORA"
-       >WATCH NOW</a>
-    <div class="mini" id="t_age">18+ only. Entertainment for adults.</div>
+       data-ln-label-en="VISIT NOW" data-ln-label-de="JETZT BESUCHEN" data-ln-label-fr="VISITER"
+       data-ln-label-it="VISITA ORA" data-ln-label-es="VISITAR AHORA" data-ln-label-pt="VISITAR AGORA"
+       >VISIT NOW</a>
+    <div class="mini" id="t_age">18+ only. Adult content may include nudity or sexual performances. Access is subject to the destination platform&rsquo;s terms, applicable age restrictions and local laws.<br>Please review the destination website&rsquo;s content and terms before proceeding.</div>
   </div>
 
   <!-- ===== 到达统计:Google Analytics 4(自动记页面访问 + 按钮点击) ===== -->
@@ -113,32 +116,39 @@
 
   <script>
     // 多语言：6 种（英/德/法/意/西/葡）。默认按浏览器语言，右上角可手动切
-    // 文案 = 数字卖点(10,000+ 模特在线) + “最甜的姑娘正在线直播” + “随便挑一个” + WATCH NOW
+    // 文案 = 平台介绍/合规式(Discover Live Streaming Entertainment + 三条说明 + VISIT NOW);按用户要求不写品牌名
+    // note = 底部第二行小字(原来那段 Important 提示),和 age 合成两行显示
     var T = {
-      en: { h:'10,000+ Sweet Girls Online',
-            sub:'The sweetest girls show themselves live right now \u2014 pick any one you like. Free to watch.',
-            f1:'10,000+ models online now', f2:'Pick any one you like', f3:'Free to watch \u2014 instant access',
-            age:'18+ only. Entertainment for adults.' },
-      de: { h:'10.000+ süße Girls online',
-            sub:'Die süßesten Girls zeigen sich gerade live \u2014 such dir einfach die aus, die dir gefällt. Ansehen ist kostenlos.',
-            f1:'10.000+ Models gerade online', f2:'Such dir eine aus, die dir gefällt', f3:'Kostenlos ansehen \u2014 sofort dabei',
-            age:'Nur ab 18 Jahren. Unterhaltung für Erwachsene.' },
-      fr: { h:'10 000+ filles en ligne',
-            sub:'Les plus belles filles se montrent en direct en ce moment \u2014 choisissez celle que vous voulez. Regarder est gratuit.',
-            f1:'10 000+ modèles en ligne maintenant', f2:'Choisissez celle qui vous plaît', f3:'Regarder gratuitement \u2014 accès immédiat',
-            age:'Réservé aux 18 ans et plus. Divertissement pour adultes.' },
-      it: { h:'Oltre 10.000 ragazze online',
-            sub:'Le ragazze più belle si mostrano in diretta proprio ora \u2014 scegli quella che preferisci. Guardare è gratis.',
-            f1:'10.000+ modelle online adesso', f2:'Scegli quella che ti piace', f3:'Guarda gratis \u2014 accesso immediato',
-            age:'Solo 18+. Intrattenimento per adulti.' },
-      es: { h:'Más de 10.000 chicas online',
-            sub:'Las chicas más dulces se muestran en vivo ahora mismo \u2014 elige la que quieras. Ver es gratis.',
-            f1:'10.000+ modelos online ahora', f2:'Elige la que más te guste', f3:'Ver gratis \u2014 acceso inmediato',
-            age:'Solo 18+. Entretenimiento para adultos.' },
-      pt: { h:'Mais de 10.000 garotas online',
-            sub:'As garotas mais doces estão se mostrando ao vivo agora \u2014 escolha a que quiser. Assistir é grátis.',
-            f1:'10.000+ modelos online agora', f2:'Escolha a que mais gostar', f3:'Assistir grátis \u2014 acesso imediato',
-            age:'Apenas 18+. Entretenimento para adultos.' }
+      en: { h:'Discover Live Streaming Entertainment',
+            sub:'Explore live-streaming content. Review the platform\u2019s content, access conditions and available features before continuing.',
+            f1:'Live-streaming content for adults', f2:'Platform features and access conditions may vary', f3:'Check the destination website for applicable terms and restrictions',
+            age:'18+ only. Adult content may include nudity or sexual performances. Access is subject to the destination platform\u2019s terms, applicable age restrictions and local laws.',
+            note:'Please review the destination website\u2019s content and terms before proceeding.' },
+      de: { h:'Live-Streaming-Unterhaltung entdecken',
+            sub:'Entdecke Live-Streaming-Inhalte. Pr\u00fcfe die Inhalte, die Zugangsbedingungen und die verf\u00fcgbaren Funktionen der Plattform, bevor du fortf\u00e4hrst.',
+            f1:'Live-Streaming-Inhalte f\u00fcr Erwachsene', f2:'Funktionen und Zugangsbedingungen k\u00f6nnen variieren', f3:'Pr\u00fcfe die geltenden Bedingungen und Einschr\u00e4nkungen auf der Zielwebsite',
+            age:'Nur ab 18 Jahren. Inhalte f\u00fcr Erwachsene k\u00f6nnen Nacktheit oder sexuelle Darstellungen enthalten. Der Zugang unterliegt den Bedingungen der Zielplattform, den geltenden Altersbeschr\u00e4nkungen und den lokalen Gesetzen.',
+            note:'Bitte pr\u00fcfe die Inhalte und Bedingungen der Zielwebsite, bevor du fortf\u00e4hrst.' },
+      fr: { h:'D\u00e9couvrez le divertissement en streaming en direct',
+            sub:'Explorez les contenus de streaming en direct. Consultez le contenu, les conditions d\u2019acc\u00e8s et les fonctionnalit\u00e9s disponibles de la plateforme avant de continuer.',
+            f1:'Contenus de streaming en direct pour adultes', f2:'Les fonctionnalit\u00e9s et conditions d\u2019acc\u00e8s peuvent varier', f3:'Consultez les conditions et restrictions applicables sur le site de destination',
+            age:'R\u00e9serv\u00e9 aux 18 ans et plus. Les contenus pour adultes peuvent inclure de la nudit\u00e9 ou des performances sexuelles. L\u2019acc\u00e8s est soumis aux conditions de la plateforme de destination, aux restrictions d\u2019\u00e2ge applicables et aux lois locales.',
+            note:'Veuillez consulter le contenu et les conditions du site de destination avant de continuer.' },
+      it: { h:'Scopri l\u2019intrattenimento in live streaming',
+            sub:'Esplora i contenuti in live streaming. Controlla i contenuti, le condizioni di accesso e le funzioni disponibili della piattaforma prima di continuare.',
+            f1:'Contenuti in live streaming per adulti', f2:'Funzioni e condizioni di accesso possono variare', f3:'Controlla i termini e le restrizioni applicabili sul sito di destinazione',
+            age:'Solo 18+. I contenuti per adulti possono includere nudit\u00e0 o performance sessuali. L\u2019accesso \u00e8 soggetto ai termini della piattaforma di destinazione, alle restrizioni di et\u00e0 applicabili e alle leggi locali.',
+            note:'Ti invitiamo a consultare i contenuti e i termini del sito di destinazione prima di procedere.' },
+      es: { h:'Descubre el entretenimiento en streaming en vivo',
+            sub:'Explora contenido en streaming en vivo. Revisa el contenido, las condiciones de acceso y las funciones disponibles de la plataforma antes de continuar.',
+            f1:'Contenido en streaming en vivo para adultos', f2:'Las funciones y condiciones de acceso pueden variar', f3:'Consulta los t\u00e9rminos y restricciones aplicables en el sitio de destino',
+            age:'Solo 18+. El contenido para adultos puede incluir desnudos o actos sexuales. El acceso est\u00e1 sujeto a los t\u00e9rminos de la plataforma de destino, las restricciones de edad aplicables y las leyes locales.',
+            note:'Revisa el contenido y los t\u00e9rminos del sitio de destino antes de continuar.' },
+      pt: { h:'Descubra o entretenimento em live streaming',
+            sub:'Explore conte\u00fado em live streaming. Revise o conte\u00fado, as condi\u00e7\u00f5es de acesso e os recursos dispon\u00edveis da plataforma antes de continuar.',
+            f1:'Conte\u00fado em live streaming para adultos', f2:'Recursos e condi\u00e7\u00f5es de acesso podem variar', f3:'Verifique os termos e restri\u00e7\u00f5es aplic\u00e1veis no site de destino',
+            age:'Apenas 18+. Conte\u00fado adulto pode incluir nudez ou atos sexuais. O acesso est\u00e1 sujeito aos termos da plataforma de destino, \u00e0s restri\u00e7\u00f5es de idade aplic\u00e1veis e \u00e0s leis locais.',
+            note:'Revise o conte\u00fado e os termos do site de destino antes de continuar.' }
     };
     var btnEnt = document.getElementById('enterBtn');
     function apply(l){
@@ -148,7 +158,7 @@
       document.getElementById('t_f1').innerHTML = d.f1;
       document.getElementById('t_f2').textContent = d.f2;
       document.getElementById('t_f3').textContent = d.f3;
-      document.getElementById('t_age').textContent = d.age;
+      document.getElementById('t_age').innerHTML = d.age + (d.note ? '<br>' + d.note : '');
       btnEnt.textContent = btnEnt.getAttribute('data-ln-label-' + l) || btnEnt.getAttribute('data-ln-label-en');
       document.documentElement.lang = T[l] ? l : 'en';
       document.querySelectorAll('.langs button').forEach(function(b){
